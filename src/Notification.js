@@ -1,8 +1,9 @@
 import PushNotification from "react-native-push-notification"
 
+
 class Notification {
 
-    setNavegador = ( novoNavegador) => {
+    setNavegador = (novoNavegador) => {
         navegador = novoNavegador
     }
 
@@ -16,7 +17,7 @@ class Notification {
             },
             onNotification: function (notification) {
                 console.log("[NotificationManager] onNotification:", notification);
-                navegador.navigate("Redirect")
+                navegador.navigate("Home")
                 // Função de processamento da notificação 
                 // Chamada quando uma notificação é recebida ou aberta
             },
@@ -103,7 +104,7 @@ buildNotificationSchedule2 = ()=>{
         allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
       
         /* Android Only Properties */
-        repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info.
+        repeatTime: 2, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info.
         repeatType: "minute",
         channelId: "my-channel",
       });

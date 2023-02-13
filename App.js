@@ -1,16 +1,17 @@
-import  React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MI from 'react-native-vector-icons/MaterialCommunityIcons';
 import ED from 'react-native-vector-icons/AntDesign';
 import { NotificationManager } from './src/Notification';
-import Redirect from './src/Redirect';
-import { Component } from 'react'
+import { Component } from 'react';
+import { Button } from 'react-native-paper';
+
 
 const notificador = NotificationManager
-
+const Stack = createNativeStackNavigator();
 
 export class NotificationService extends Component {
   constructor(props) {
@@ -95,15 +96,17 @@ function HomeScreen({ navigation }) {
 
       </View>
       <View>
-        <Text style={{ fontWeight: 'bold', fontSize: 25, padding: 10, color: 'dodgerblue' }}>Bem vindo ao</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 25, padding: 10, color: 'dodgerblue' }}> Bem vindo ao</Text>
         <View style={{ justifyContent: 'center', alignItems: 'center', padding: 10 }}>
-          <Image style={{ width: 180, height: 180, justifyContent: 'center', alignItems: 'center' }}source={require('./src/imagens/logo.png')}></Image>
+          <Image style={{ width: 180, height: 180, justifyContent: 'center', alignItems: 'center' }} source={require('./src/imagens/logo.png')}></Image>
         </View>
         <View>
 
 
         </View>
+
         <Text style={{ textAlign: 'center', color: 'black', fontSize: 20, padding: 15, color: 'dodgerblue', fontWeight: 'bold' }}>Oportunidades da semana </Text>
+        <Text></Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
           <View>
             <Image style={{ width: 120, height: 120, justifyContent: 'center', alignItems: 'center' }} source={require('./src/imagens/rice.png')}></Image>
@@ -136,7 +139,7 @@ function CategoriaScreen({ navigation }) {
     <ScrollView>
       <Text style={{ fontWeight: 'bold', fontSize: 25, margin: 10, color: 'dodgerblue' }}>Mercado do Bill</Text>
       <View>
-        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, padding: 20 }}>Mercearia</Text>
+        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, padding: 20 }}> Mercearia</Text>
 
         <View style={{ flexDirection: 'row', alignItems: 'space-around', justifyContent: 'space-around' }}>
           <TouchableOpacity
@@ -146,7 +149,13 @@ function CategoriaScreen({ navigation }) {
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>Arroz 1 kg</Text>
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>R$ 8,99</Text>
             </View>
+            <View>
+            <Button buttonColor ="dodgerblue" icon="cart-outline" mode='contained' onPress={() => { }} >
+              Comprar
+            </Button>
+          </View>
           </TouchableOpacity>
+          
 
           <TouchableOpacity
             onPress={() => navigation.navigate('Bolacha')}>
@@ -155,11 +164,16 @@ function CategoriaScreen({ navigation }) {
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>Bolacha</Text>
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>R$ 1,59</Text>
             </View>
+            <View>
+            <Button buttonColor ="dodgerblue" icon="cart-outline" mode='contained' onPress={() => { }} >
+              Comprar
+            </Button>
+          </View>
           </TouchableOpacity>
         </View>
 
 
-        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, padding: 20 }}>Bebidas</Text>
+        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, padding: 20 }}> Bebidas</Text>
 
         <View style={{ flexDirection: 'row', alignItems: 'space-around', justifyContent: 'space-around' }}>
           <TouchableOpacity
@@ -169,6 +183,11 @@ function CategoriaScreen({ navigation }) {
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>Cerveja</Text>
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>R$ 3,90</Text>
             </View>
+            <View>
+            <Button buttonColor ="dodgerblue" icon="cart-outline" mode='contained' onPress={() => { }} >
+              Comprar
+            </Button>
+          </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate('Refrigerante')}>
@@ -177,9 +196,14 @@ function CategoriaScreen({ navigation }) {
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>Refrigerante</Text>
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>R$ 2,99</Text>
             </View>
+            <View>
+            <Button buttonColor ="dodgerblue" icon="cart-outline" mode='contained' onPress={() => { }} >
+              Comprar
+            </Button>
+          </View>
           </TouchableOpacity>
         </View>
-        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, padding: 20 }}>Produtos de limpeza</Text>
+        <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, padding: 20 }}> Produtos de limpeza</Text>
 
         <View style={{ flexDirection: 'row', alignItems: 'space-around', justifyContent: 'space-around' }}>
           <TouchableOpacity
@@ -189,6 +213,11 @@ function CategoriaScreen({ navigation }) {
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>Detergente Bão</Text>
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>R$ 1,79</Text>
             </View>
+            <View>
+            <Button buttonColor ="dodgerblue" icon="cart-outline" mode='contained' onPress={() => { }} >
+              Comprar
+            </Button>
+          </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate('Refrigerante')}>
@@ -197,12 +226,14 @@ function CategoriaScreen({ navigation }) {
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>Água Sanitária</Text>
               <Text style={{ color: 'black', fontSize: 15, padding: 2 }}>R$ 3,99</Text>
             </View>
+            <View>
+            <Button buttonColor ="dodgerblue" icon="cart-outline" mode='contained' onPress={() => { }} >
+              Comprar
+            </Button>
+          </View>
           </TouchableOpacity>
         </View>
       </View >
-
-
-
     </ScrollView>
 
   );
@@ -214,7 +245,7 @@ function SobreScreen({ navigation }) {
       <View>
         <View style={{ justifyContent: 'center', alignItems: 'center', padding: 10 }}>
           <Text style={{ fontWeight: 'bold', fontSize: 25, margin: 10, color: 'dodgerblue' }}>Mercado do Bill</Text>
-          <Image style={{ width: 150, height: 150, justifyContent: 'center', alignItems: 'center' }}source={require('./src/imagens/logo.png')}></Image>
+          <Image style={{ width: 150, height: 150, justifyContent: 'center', alignItems: 'center' }} source={require('./src/imagens/logo.png')}></Image>
 
           <Text style={{ color: 'black', margin: 10, padding: 5, textAlign: 'justify' }}>
             Temos os mais diversificados produtos do mercado, tudo para sua casa  com preço baixo, promoções diárias e entregamos na sua casa.
@@ -231,7 +262,6 @@ function SobreScreen({ navigation }) {
         <Text style={{ color: 'black', textAlign: 'center', padding: 2 }}>Horário de funcionamento</Text>
         <Text style={{ color: 'black', textAlign: 'center', padding: 2 }}>De segunda a segunda das 7:00 as 22:00 hs</Text>
         <View style={{ justifyContent: 'center', alignItems: 'center', padding: 10 }}>
-
 
         </View>
       </View>
@@ -265,13 +295,16 @@ const HomeStack = createNativeStackNavigator();
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
+
       <HomeStack.Screen name="Início" component={HomeScreen} />
+
     </HomeStack.Navigator>
   );
 }
 
 function CategoriaStackScreen() {
   return (
+
     <HomeStack.Navigator>
       <HomeStack.Screen name="Ofertas" component={CategoriaScreen} />
 
@@ -313,21 +346,33 @@ export default function App() {
     notificador.createChannel();
     notificador.buildNotificationSchedule();
     notificador.buildNotificationSchedule2();
+
   });
 
- 
+
 
   return (
     <NavigationContainer>
+
       <Tab.Navigator>
         <Tab.Screen
           name="Home"
-          component={HomeStackScreen}
+
           options={{
             tabBarIcon: ({ color, size }) =>
               <MI name='home-circle' color={color} size={size} />
           }}
-        />
+        >
+          {
+            ({ navigation }) => {
+              notificador.setNavegador(navigation)
+              return (
+                <HomeStackScreen />
+              )
+            }
+          }
+
+        </Tab.Screen>
 
         <Tab.Screen
           name="Produtos"
@@ -347,6 +392,7 @@ export default function App() {
               <MI name='emoticon-outline' color={color} size={size} />
           }}
         />
+
         <Tab.Screen
           name="Cartões"
           component={SettingsStackScreen}
@@ -355,7 +401,10 @@ export default function App() {
               <ED name='creditcard' color={color} size={size} />
           }}
         />
+
+
       </Tab.Navigator>
+
     </NavigationContainer>
   );
 }
